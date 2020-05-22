@@ -9,7 +9,7 @@
 		<title>about me</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/timer.css" />
 		<link rel='icon' href='favicon.ico' type='image/x-icon'/ >
 	</head>
 	<body>
@@ -49,6 +49,28 @@
 					</header>
 					
 							<p>Nothing much to see here, just workin on a timer to use with workouts</p>
+							<main ng-app="PomodoroApp" ng-controller="MainCtrl">
+  <header>
+    <div class="session">
+      <div class="breakCtrl">
+        <p>break length</p>
+        <button class="minus" ng-click="breakLengthChange(-1)">-</button><span class="time">{{breakLength}}</span>
+        <button class="plus" ng-click="breakLengthChange(1)">+</button>
+      </div>
+      <div class="sessionCtrl">
+        <p>session length</p>
+        <button class="minus" ng-click="sessionLengthChange(-1)">-</button><span class="time">{{sessionLength}}</span>
+        <button class="plus" ng-click="sessionLengthChange(1)">+</button>
+      </div>
+    </div>
+  </header>
+  <section ng-click="toggleTimer()">
+    <div class="timer">
+      <p class="title">{{sessionName}}</p>
+      <p>{{timeLeft}}</p><span class="fill" ng-style="{'height':fillHeight, 'background':fillColor }"></span>
+    </div>
+  </section>
+</main>
 							
 			</section>
 
