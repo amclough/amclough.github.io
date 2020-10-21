@@ -3408,8 +3408,8 @@
 		#banner input[type="button"],
 		#banner button,
 		#banner .button {
-			background-color: #5a5a5a;
-			color: #ffffff !important;
+			background-color: #ffffff;
+			color: #5a5a5a !important;
 		}
 
 			#banner input[type="submit"]:hover,
