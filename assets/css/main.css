@@ -3417,7 +3417,7 @@
 			#banner input[type="button"]:hover,
 			#banner button:hover,
 			#banner .button:hover {
-				background-color: #676767;
+				background-color: #ffffff;
 			}
 
 			#banner input[type="submit"]:active,
@@ -3425,7 +3425,7 @@
 			#banner input[type="button"]:active,
 			#banner button:active,
 			#banner .button:active {
-				background-color: #4d4d4d;
+				background-color: #FFFFFF;
 			}
 
 			#banner input[type="submit"].alt,
