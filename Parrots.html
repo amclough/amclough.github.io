@@ -1,0 +1,631 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Parrots</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a798cbcc-b500-4533-a71c-d2209c777046" class="page sans"><header><img class="page-cover-image" src="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%206.png" style="object-position:center 11.48%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Parrots%20a73bb91005724a2fbb8176f53667d355/fly-parrots-inc.png"/></div><h1 class="page-title">Parrots</h1></header><div class="page-body"><p id="7db2c12b-f542-4d68-8f27-522cb8a34740" class=""><strong>Intro:</strong> I&#x27;ve been working with Parrots, Inc for a little over a year now. I began helping develop a website and marketing materials, and have stayed on long-term to help support production of the following MVP, serving in product management and design capacities.</p><p id="c6619d93-fcc3-4b07-92d7-ad33884ceca2" class=""><strong>What:</strong> A gaze-tracking speech solution for those with speech disabilities.</p><p id="5944c836-a06d-487d-af0c-31fd5509ab9a" class=""><strong>Role: </strong>MVP Product Lead</p><p id="ed71a813-e7ac-470c-a24a-83156365c441" class=""><strong>Design Team:</strong> Myself and Ali Fishman</p><h2 id="ccf3671d-4373-4b86-8e26-ea56fb36a664" class="">Discovery Phase:</h2><p id="7fd3001d-0d1d-4d45-8398-415d27cb617f" class="">Many current products focus on logo-based interfaces, like the Tobii Indi or the Proloquo2Go. This accomplishes a small number of quick words or phrases, but doesn&#x27;t allow for more nuanced thoughts, and the use of screen real estate doesn&#x27;t align well with necessity for certain features</p><h3 id="efe803ed-b917-4a56-bfaf-fcacbd979558" class="">Constraints:</h3><p id="8fc40a7c-abc8-4bef-9285-f38d85c11b98" class="">We were limited in our ability to engage with end users throughout the MVP development, except for shorter, more anecdotal notes about current solutions being too slow and glitchy. As such, most of this discovery was based on finding friction points in current solutions that were contributing to this poor user experience.</p><figure id="a73bb910-0572-4a2f-bb81-76f53667d355" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled.png"><img style="width:1187px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled.png"/></a></figure><figure id="e1513522-eb66-4883-b90c-94067f711696" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%201.png"><img style="width:1083px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%201.png"/></a></figure><h1 id="04a4a8d6-7a96-4302-8455-c48a8fa731fd" class="">Bringing speech out of a bubble:</h1><p id="19f696a0-8696-4a17-8080-0aba502c4c17" class="">In preparing for the MVP for our first official round of pilot testing, our goal was to eliminate as many friction points as possible in existing software&#x27;s interface while incorporating our core technical features.</p><h2 id="083b974f-e497-4b66-88f2-92dc01d89cb8" class="">Screen real estate considerations:</h2><figure id="cbfb9d8f-ee5b-4c5b-ac11-dae09e7c4d24" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%202.png"><img style="width:1520px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%202.png"/></a></figure><p id="a89c2294-794d-4a6c-95f4-1a59baf5ae3a" class="">We needed to find away to keep the necessary features all on the home page while making better use of layout and flow. An added challenge was the requirement to allow users to see into their environment, both for the object selection feature as well as for mitigating the problem of the user&#x27;s screen blocking their field of view.</p><div id="e75c3850-0a55-4795-9928-fc6d656f6e94" class="column-list"><div id="376a42c2-4158-4bae-9518-0799f42d841a" style="width:75%" class="column"><figure id="42c51566-b517-4974-9b3c-3b393b5d568f" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%203.png"><img style="width:336px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%203.png"/></a></figure></div><div id="dc67a283-7604-4f75-9520-3e42d3a1c4ef" style="width:24.999999999999993%" class="column"><h3 id="7f44a8b3-4c00-455f-b5bc-ec286163cc63" class="">Home Screen</h3><p id="55b94e1a-d1a0-42f4-bbfa-0d645b89d742" class="">Since the homepage is where the software will &quot;rest,&quot; keeping the largest portion of the screen focused on showing the environment keeps it from being intrusive.</p></div></div><p id="0cdede0e-8592-4b87-a825-93a5e010c167" class="">
+</p><div id="3d74f27c-614f-4681-bd92-33510ea5bc05" class="column-list"><div id="460b5418-e7e8-4df0-b00b-b806304e6fa7" style="width:25%" class="column"><h3 id="ed00d31e-118d-4991-9c5d-18c623a91503" class="">Sentence Start</h3><p id="b59d6756-c1ec-42ba-ae3a-466dfd8d352a" class="">The algorithm behind the app can suggest sentence starters based on context clues like time of day, the room the user is in, and people present.</p><p id="a49ae758-bfdd-4b00-903f-ce24d7bb40dc" class="">
+</p><p id="890416b7-5c6e-4442-a72a-974cfbeac741" class="">Having a sidebar open with these suggestions, as well as a &quot;never mind&quot; exit option allows for quick and easy starts with — or exits from — the drafting area.</p></div><div id="69949d07-45fc-42d6-a52f-302fbe78ca38" style="width:75%" class="column"><figure id="f23adb3e-6559-4ffd-af66-cec76b4658df" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%204.png"><img style="width:653px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%204.png"/></a></figure></div></div><p id="a94a61a9-5153-4d81-9a88-bf76ab99a97e" class="">
+</p><div id="3d0cf6f5-f36b-4f6e-91f6-530c8d513be8" class="column-list"><div id="52b270b4-ef68-453a-93ec-d43a5bf80a26" style="width:75%" class="column"><figure id="df63aab7-4b1a-4f45-9a09-dd89c68ef071" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%205.png"><img style="width:1167px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/Untitled%205.png"/></a></figure></div><div id="faf9e537-1d6d-43dc-93f0-df3fa1781115" style="width:25%" class="column"><h3 id="8345030f-a2fd-4d41-89b6-e76da269c90e" class="">Drafting Area</h3><p id="f5472c14-750d-42e6-b62c-a8bc819e88e2" class="">The home and drafting buttons were removed to provide a more immersive feel and provide more space for the keyboard, as well as to avoid signaling to switch between tabs, which would delete current progress. </p><p id="519ee1a7-fd02-4f07-beb4-fdc7933e783d" class="">
+</p></div></div><p id="88178c86-2c25-41bb-b9a0-0425a4943b2e" class="">Significant space was devoted to word suggestions, since the algorithm makes it possible for most sentence composition to happen almost entirely with suggestions and selecting items in the user&#x27;s environment using the camera, making manual keyboard entry less relevant.</p><h2 id="f71fdc9c-73c6-4217-a8d3-6608612b2c2a" class="">Incorporating AI and Machine Learning:</h2><p id="af038f7e-e587-46c5-a4d4-b3ec20e9f34d" class="">A key advancement in the Parrots approach involves the use of AI to facilitate predictive text. We needed to find a way to incorporate the algorithm&#x27;s contextual suggestions while allowing users to quickly draft in ways they were used to.</p><div id="0642eae1-5115-41ac-a408-75681fa0956e" class="column-list"><div id="2591a7e3-aa28-4587-96ee-f6c0b818c006" style="width:50%" class="column"><figure id="00c6b4e3-ea8a-472d-973e-7d09c9428f3d" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/SPEAK_-_CORRECT.png"><img style="width:2960px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/SPEAK_-_CORRECT.png"/></a></figure></div><div id="e3b39176-cd22-41a7-9656-8e4c27674ed7" style="width:50%" class="column"><figure id="86fb6ff9-7e04-4880-9eb9-994cbafc5c7a" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/POLLY_IS_SPEAKING.png"><img style="width:2960px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/POLLY_IS_SPEAKING.png"/></a></figure></div></div><h2 id="89b0b9d1-2635-4c64-b2c3-d5073c7849a2" class="">Designing for failure:</h2><p id="c2232c21-0390-4b08-9dcb-aa098bf75f39" class="">Most existing platforms seem designed for users with good dexterity and coordination — not the typical profile of someone using their gaze to type. </p><div id="286ad26c-c322-457b-bc0c-c93e47a7240b" class="column-list"><div id="d556a5b4-248b-40b6-8356-e23227c14052" style="width:50.000000000000014%" class="column"><figure id="23642b53-219b-4f84-89f6-cf87bbd614cf" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/CONFIRM_-_YES.png"><img style="width:2960px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/CONFIRM_-_YES.png"/></a></figure></div><div id="c1a2ed20-e97d-4323-bfda-401dcef2c925" style="width:50%" class="column"><figure id="70069a72-66d0-4eb8-ba88-2a16606a7591" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/KEYBOARD_TYPING_CLEAR_CONFIRM.png"><img style="width:2960px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/KEYBOARD_TYPING_CLEAR_CONFIRM.png"/></a></figure></div></div><p id="1557c138-f758-4f99-843f-51fcc8a1d4c0" class="">We emphasized putting stopgaps between major actions, minimized buttons to allow for more error-friendly spacing, and designed opt-out, rather than confirmation, for features like deletions and the SOS feature.</p><div id="dffe02d9-f407-408a-909c-8c2b6a6bb476" class="column-list"><div id="db9c06e0-4b03-4841-811c-9e86ed47a1b3" style="width:50%" class="column"><figure id="596a63a4-4384-40b9-8fcf-160344adfadb" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/SOS_Alert.png"><img style="width:2960px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/SOS_Alert.png"/></a></figure></div><div id="dbc95d10-cd6a-4139-8ebc-4eb97be5f1e4" style="width:50%" class="column"><figure id="c32a15a9-660e-4f62-895a-cd51bbcadae2" class="image"><a href="Parrots%20a73bb91005724a2fbb8176f53667d355/SOS_Alert_Confirm.png"><img style="width:2960px" src="Parrots%20a73bb91005724a2fbb8176f53667d355/SOS_Alert_Confirm.png"/></a></figure></div></div></div></article></body></html>
